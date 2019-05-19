@@ -9,7 +9,5 @@ To actually create text, I lean heavily on the work done here: [The unreasonable
 * `BleachBot.py` contains the code itself, all within the BleachBot class
 * `example_script.py` shows a basic useage of it
 
-### Installing
-
 ## Authors
 [inquotes](https://github.com/inquotes)
