@@ -38,6 +38,9 @@ class BleachBot:
         # populated by self.generate_text
         self.generated_text  = None
 
+        # populated by self.generate_lines
+        self.poem = None
+
 
     def set_search_terms(self, list_of_terms=[]):
     	self.search_terms = list_of_terms
@@ -94,7 +97,7 @@ class BleachBot:
         self.generated_text = "".join(out)
         return
 
-    def generate_lines(self, line_length=27, num_lines=10):
+    def generate_lines(self, line_length=27, num_lines=8):
         counter = 0
         window_start = 0
         window_end = line_length
@@ -107,5 +110,9 @@ class BleachBot:
                 window_start = window_end
                 window_end = window_end+line_length
             window_end += 1
-        print("\n".join(line_list))   
+        self.poem = "\n".join(line_list)
+        print(self.poem)
         return 
+
+    def tweet_poem(self):
+        self.__api.update_status(self.poem)
